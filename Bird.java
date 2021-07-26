@@ -87,6 +87,7 @@ public class Bird extends Actor
             MyWorld myWorld = (MyWorld)world;
             Counter scoreCounter = myWorld.getScoreCounter();
             scoreCounter.add(10);
+            Greenfoot.playSound("eating.wav");
         }
     }
     

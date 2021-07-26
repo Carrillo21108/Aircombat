@@ -12,6 +12,8 @@ public class MyWorld extends World
     Counter scoreCounter;
     Counter lifeCounter;
     GameOver gameOver;
+    GreenfootSound myMusic = new GreenfootSound("background-sound.mp3");
+    
     //GifImage background = new GifImage("clouds.gif");
     /**
      * Constructor for objects of class MyWorld.
@@ -26,10 +28,10 @@ public class MyWorld extends World
 
     public void act(){
         //setBackground(background.getCurrentImage());
+        myMusic.play();
         validLifeCounter();
         generateHawks();
         generateSeeds();
-        
         
     }
     
