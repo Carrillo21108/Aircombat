@@ -2,27 +2,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class MyWorld here.
+ * MyWorld class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Brian Carrillo
+ * @02/08/2021
  */
 public class MyWorld extends World
 {
     Counter scoreCounter;
     Counter lifeCounter;
+    Label gameLevel;
     GameOver gameOver;
     GreenfootSound myMusic = new GreenfootSound("background-sound.mp3");
+    GreenfootSound myMusic2 = new GreenfootSound("fail.mp3");
+    public int probability=1;
     
-    //GifImage background = new GifImage("clouds.gif");
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld()
+    public MyWorld(int probability)
     {    
-        // Create a new world with 900x600 cells with a cell size of 1x1 pixels.
         super(900, 600, 1);
+        this.probability = probability;
         prepare();
     }
 
@@ -42,7 +44,7 @@ public class MyWorld extends World
     }
     
     public void generateHawks(){
-        if(Greenfoot.getRandomNumber(100)<2){
+        if(Greenfoot.getRandomNumber(100)<probability-0.9){
             boolean validPosition = false;
             do{
                 int random = Greenfoot.getRandomNumber(600);
@@ -83,6 +85,8 @@ public class MyWorld extends World
         lifeCounter = new Counter("Vidas: ");
         lifeCounter.add(3);
         addObject(lifeCounter,200,31);
+        gameLevel = new Label("Dificultad: "+this.probability,30);
+        addObject(gameLevel,350,31);
     }
     
     public Counter getScoreCounter(){
@@ -97,6 +101,10 @@ public class MyWorld extends World
         gameOver = new GameOver();
         addObject(gameOver,getWidth()/2,getHeight()/2);
         gameOver.message();
-        Greenfoot.stop();
+        myMusic.stop();
+        myMusic2.play();
+        Greenfoot.delay(400);
+        myMusic2.stop();
+        Greenfoot.setWorld(new Welcome(this.probability));
     }
 }

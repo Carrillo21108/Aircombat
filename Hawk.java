@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Hawk here.
+ * Hawk class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Brian Carrillo
+ * @02/08/2021
  */
 public class Hawk extends Actor
 {

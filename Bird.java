@@ -1,18 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bird here.
+ * Bird class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Brian Carrillo 
+ * @02/08/2021
  */
 public class Bird extends Actor
 {   
-    
-    /*private static final int EAST = 0;
-    private static final int WEST = 1;
-    private static final int NORTH = 2;
-    private static final int SOUTH = 3;*/
     
     private int direction;
     private int seedsEaten;
@@ -30,11 +25,7 @@ public class Bird extends Actor
         
         if(foundHawk()){
             hitHawk();
-        }/*else if(canMove()) {
-            move();
-        }else {
-            turnLeft();
-        }*/
+        }
     }
     
     public void moveOn(){
@@ -94,6 +85,7 @@ public class Bird extends Actor
     public void hitHawk(){
         Actor hawk = getOneObjectAtOffset(0,0,Hawk.class);
         if(hawk != null){
+            Greenfoot.playSound("hit.mp3");
             World world;
             world = getWorld();
             world.removeObject(hawk);
@@ -102,82 +94,4 @@ public class Bird extends Actor
             lifeCounter.substract(1);
         }
     }
-    
-    /*public boolean foundHawk(){
-        Actor hawk = getOneObjectAtOffset(0,0,Hawk.class);
-        
-        if(hawk != null){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    public void decreaseLife(){
-       Actor hawk = getOneObjectAtOffset(0,0,Hawk.class);
-        
-        if(hawk != null){
-            life -= 1;
-            if(life == 0){
-                //
-            }
-        } 
-    }
-    
-    public boolean canMove(){
-        World myWorld = getWorld();
-        int x =  getX();
-        int y = getY();
-        
-        switch(direction){
-            case SOUTH:
-                y++;
-                break;
-            case EAST:
-                x++;
-                break;
-            case NORTH:
-                y--;
-                break;
-            case WEST:
-                x--;
-                break;
-        }
-        
-        if(x >= myWorld.getWidth() || y >= myWorld.getHeight()){
-            return false;
-        }else if(x < 0 || y < 0){
-            return false;
-        }
-        
-        return true;
-    }
-    
-    public void move(){
-        if(!canMove()){
-            return;
-        }
-        
-        switch(direction){
-            case SOUTH:
-                setLocation(getX(),getY()+1);
-                break;
-            case EAST:
-                setLocation(getX()+1,getY());
-                break;
-            case NORTH:
-                setLocation(getX(),getY()-1);
-                break;
-            case WEST:
-                setLocation(getX()-1,getY());
-                break;
-        }
-    }
-    
-    public void turnLeft(){
-        switch(direction){
-            case SOUTH:
-                setDirection(EAST);
-        }
-    }*/
 }

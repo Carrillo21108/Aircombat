@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Bird
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Bird\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Bird\ class\r\n\ \r\n\ @Brian\ Carrillo\ \r\n\ @02/08/2021\r\n
 comment1.params=
 comment1.target=Bird()
 comment2.params=
